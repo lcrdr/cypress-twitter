@@ -7,9 +7,6 @@ describe('Funcionalidade: Clicar nos botões', () => {
     //Entrar toda vez na tela inicial
     beforeEach(() => {
         cy.EnterPage();
-    })
-
-    it('Clicar em Inscreva-se', () => {
         cy.get('body').then(($body) => {
             //Seletor do botão de Inscreva-se sendo clicado
             if ($body.find('.StaticLoggedOutHomePage-buttons > .EdgeButton--primary').length) {
@@ -22,10 +19,16 @@ describe('Funcionalidade: Clicar nos botões', () => {
         })
     })
 
-    it('Clicar em entrar', () => {
-        //Seletor do botão de Login sendo clicado
-        cy.get('[data-testid=loginButton]').click()
-        //Após clicar, verificar a URL
-        cy.url().should('eq', 'https://twitter.com/login')
+    it('Registrar um novo usuário', ()=>{
+        //Mudar o campo para e-mail
+        cy.get('.css-18t94o4 > .css-901oao').click()
+        //Digitar o nome
+        cy.get(':nth-child(2) > .r-1u4rsef > .css-1dbjc4n > .css-901oao > .r-30o5oe').type('Leonardo Cypress');
+        //Digitar o e-mail
+        cy.get(':nth-child(3) > .r-1u4rsef > .css-1dbjc4n > .css-901oao > .r-30o5oe').type('leonardocypress111220@gmail.com');
+        //Clicar em avançar
+        cy.get('.r-obd0qt > .css-18t94o4').click()
+        //Clicar novamente em avançar
+        cy.get('.r-obd0qt > .css-18t94o4').click()
     })
 })
