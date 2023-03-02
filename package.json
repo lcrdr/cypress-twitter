@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/leocerminaro/cypress-twitter#readme",
   "devDependencies": {
-    "cypress": "^3.7.0"
+    "cypress": "^12.7.0"
   }
 }
